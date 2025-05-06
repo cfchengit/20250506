@@ -10,7 +10,8 @@ var outer_data = {
         { name: "香蕉", price: 60, num: 6 },
         { name: "芭樂", price: 120, num: 20 }
     ],
-    selectedFruit: null // 用於存儲選擇的水果
+    selectedFruit: null, // 用於存儲選擇的水果
+    selectedQuantity: null // 用於存儲購物者選擇的數量
 };
 
 const app = Vue.createApp({
@@ -24,6 +25,7 @@ const app = Vue.createApp({
         updateFruitDetails() {
             // 此方法在選擇水果時觸發，更新選擇的水果資訊
             console.log("選擇的水果：", this.selectedFruit);
+            this.selectedQuantity = null; // 重置選擇的數量
         }
     }
 });

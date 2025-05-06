@@ -26,6 +26,15 @@
             <p class="info" :class="{ lowStock: selectedFruit.num < 10 }">
                 數量：{{ selectedFruit.num }}
             </p>
+
+            <!-- 新增購物者選擇數量的選單 -->
+            <label for="quantity-select">選擇購買數量：</label>
+            <select id="quantity-select" v-model="selectedQuantity">
+                <option v-for="n in selectedFruit.num + 1" :key="n" :value="n - 1">
+                    {{ n - 1 }}
+                </option>
+            </select>
+            <p v-if="selectedQuantity !== null">購買數量：{{ selectedQuantity }}</p>
         </div>
     </div>
     
