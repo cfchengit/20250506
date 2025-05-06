@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第十二周作業</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!-- //html -->
+    <div id="app">
+        <!-- 在這裡面Vue會有作用 -->
+        <h1>第十二周作業</h1>
+        <!-- 下拉式選單 -->
+        <label for="fruit-select">選擇水果：</label>
+        <select id="fruit-select" v-model="selectedFruit" @change="updateFruitDetails" class="dropdown">
+            <option v-for="fruit in fruits" :key="fruit.name" :value="fruit">
+                {{ fruit.name }}
+            </option>
+        </select>
+
+        <!-- 顯示選擇的水果資訊 -->
+        <div v-if="selectedFruit">
+            <p class="info">價格：{{ selectedFruit.price }}</p>
+            <p class="info" :class="{ lowStock: selectedFruit.num < 10 }">
+                數量：{{ selectedFruit.num }}
+            </p>
+        </div>
+    </div>
+    
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.8/vue.min.js'></script>
+    <script  src="script.js"></script> -->
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="script3.js"></script>
+    
+</body>
+</html>
